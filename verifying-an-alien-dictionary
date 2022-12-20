@@ -1,0 +1,16 @@
+class Solution(object):
+    def isAlienSorted(self, words, order):
+        d = {o:i for i, o in enumerate(list(order))}
+        def isInOrder(s, t, order):
+            smaller_index = min(len(s), len(t))
+            for i in range(smaller_index):
+                if d[s[i]] > d[t[i]]:
+                    return False
+                elif d[s[i]] < d[t[i]]:
+                    return True
+            return True if smaller_index == len(s) else False
+        for i, w in enumerate(words[:-1]):
+            for j in words[i+1:]:
+                if not isInOrder(w, j, order):
+                    return False
+        return True
