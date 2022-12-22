@@ -1,0 +1,5 @@
+class Solution(object):
+    def average(self, s):
+        s.sort()
+        s = list(map(float, s))
+        return sum(s[1:-1])/(len(s)-2)
