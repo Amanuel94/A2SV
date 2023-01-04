@@ -1,0 +1,25 @@
+class Solution(object):
+    def sumEvenAfterQueries(self, nums, queries):
+        "
+        :type nums: List[int]
+        :type queries: List[List[int]]
+        :rtype: List[int]
+        """
+
+        e_sum = sum([i for i in nums if i%2 == 0])
+        
+        ans = []
+
+        for query in queries:
+        
+            new_val = nums[query[1]] + query[0]
+
+            e_sum = e_sum + (new_val)*abs(new_val%2 -1) - (nums[query[1]])*abs(nums[query[1]]%2 -1)
+            
+            ans.append(e_sum)
+            nums[query[1]] = new_val
+    
+        return ans
+
+
+
