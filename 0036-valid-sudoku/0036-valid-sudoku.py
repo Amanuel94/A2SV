@@ -7,13 +7,10 @@ class Solution(object):
         
         for i, row in enumerate(board):
             if not self.check_list(row):
-                # print(row)
                 return False
             if not self.check_list([r[i] for r in board]):
-                # print([r[i] for r in board])
                 return False
             if not self.check_list([board[j//3 + 3*(i//3)][j%3 + (3*i)%9] for j in range(9)]):
-                # print([board[j//3 + 3*(i//3)][j%3 + (3*i)%9] for j in range(9)])
                 return False
         return True
         
