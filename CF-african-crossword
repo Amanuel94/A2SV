@@ -1,0 +1,51 @@
+
+n,m  = list(map(int, input().split()))
+board = []
+for i in range(n):
+    board.append(list(input()))
+
+
+def rem(li):
+    counter = {}
+    for i, char in enumerate(li):
+        if char in counter:
+            li[i] = ""
+            li[counter[char]] = ""
+        else:
+            counter[char] = i
+    return li
+
+
+board_T = [[0]*n for i in range(m)]
+i= 0
+while i < m:
+    j = 0
+    while j < n:
+        board_T[i][j] = board[j][i]
+        j+=1
+    i+=1
+
+for row in board:
+    row = rem(row)
+for row in board_T:
+    row = rem(row)
+
+i = 0
+while i < n:
+    j = 0
+    while j < m:
+        if not (board[i][j] and board_T[j][i]):
+            board[i][j] = ''
+        j+=1
+    i+=1
+
+res = ""
+for row in board:
+    for cell in row:
+        res+= cell
+
+print(res)
+
+
+
+
