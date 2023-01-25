@@ -1,0 +1,24 @@
+t = int(input())
+
+for i in range(t):
+    n = int(input())
+    a = list(map(int, input().split()))
+    
+    p = 0
+    cur = a[p]
+    sub = []
+    sum_ = 0
+    while p < len(a):
+        if cur*a[p] >= 0:
+            sub.append(a[p])
+            p+=1
+        else:
+            # sub.append(a[p])
+            sub.sort()
+            sum_+= sub[-1]
+            sub = []
+            cur = a[p]
+    sub.sort()
+    sum_+=sub[-1]
+    print(sum_)
+        
