@@ -11,11 +11,31 @@ class Solution(object):
         :rtype: bool
         """
         
-        nodes = set()
-        while head:
-            if head in nodes:
+#         nodes = set()
+#         while head:
+#             if head in nodes:
+#                 return True
+#             else:
+#                 nodes.add(head)
+#             head= head.next
+#         return False
+        if not head:
+            return False
+
+        slow = head
+        fast = head.next
+        
+        while fast and fast.next:
+            if fast == slow:
                 return True
             else:
-                nodes.add(head)
-            head= head.next
+                fast = fast.next.next
+                slow = slow.next
         return False
+        
+            
+
+
+
+
+
