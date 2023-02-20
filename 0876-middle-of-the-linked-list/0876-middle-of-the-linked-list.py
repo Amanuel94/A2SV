@@ -12,21 +12,16 @@ class Solution(object):
         
         # dummy = ListNode(0)
         # dummy.next = head
-#         mid = head
-#         head = head.next
+        mid = head
         
-#         while head:
-#             head = head.next
-#             mid = mid.next
-#             if head:
-#                 return mid
-#             else:
-#                 head = head.next
-
-        ans = []
         while head:
-            ans.append(head)
             head = head.next
-        return ans[len(ans)//2]
-            
+            if head == None:
+                return mid
+            else:
+                mid = mid.next
+                head = head.next
+
+        
+        return mid
         
