@@ -19,19 +19,31 @@ class Solution(object):
 #                 nodes.add(head)
 #             head= head.next
 #         return False
+
+        interset = ListNode()
+        
         if not head:
             return False
-
+ 
         slow = head
-        fast = head.next
+        fast = head
         
         while fast and fast.next:
+            fast = fast.next.next
+            slow = slow.next
+            
             if fast == slow:
-                return True
-            else:
-                fast = fast.next.next
+                break
+                
+                
+        if not fast or not fast.next:
+            return None
+        else:
+            fast = head
+            while fast != slow:
+                fast = fast.next
                 slow = slow.next
-        return False
+            return fast
         
             
 
