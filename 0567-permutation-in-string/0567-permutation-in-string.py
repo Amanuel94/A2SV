@@ -1,5 +1,3 @@
-from collections import Counter
-
 class Solution(object):
     def checkInclusion(self, s1, s2):
         """
