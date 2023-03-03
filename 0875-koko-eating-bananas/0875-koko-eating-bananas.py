@@ -7,7 +7,7 @@ class Solution(object):
         """
         
         
-        l = max(sum(piles)//h, 1)
+        l = 1
         
         r = max(piles)
         
