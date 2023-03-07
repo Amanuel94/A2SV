@@ -17,7 +17,7 @@ class Solution:
         
         ans.append(root.val)
         
-        asn = self.inorderTraversal(root.right, ans)
+        ans = self.inorderTraversal(root.right, ans)
         
         return ans
     
