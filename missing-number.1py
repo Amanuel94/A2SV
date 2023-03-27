@@ -1,0 +1,15 @@
+class Solution:
+    def missingNumber(self, nums: List[int]) -> int:
+            
+        i  = 0 
+        while i < len(nums):
+            
+            if nums[i] < len(nums) and nums[i]!=i:
+                nums[nums[i]], nums[i]  = nums[i], nums[nums[i]]
+            else:
+                i+=1
+        for i, c in enumerate(nums):
+            
+            if c - i:
+                return i
+        return len(nums)
