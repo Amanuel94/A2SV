@@ -1,11 +1,17 @@
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         """
+        O(n^2)
         profit if buy at i and sell at j = sellj-buyi + maxProfit(prices[i:]) 
+
+        O(n)
+        profit at day i = max(proift by selling at day i-2 and buying today, 
+                              profit by selling today,
+                              doing nothing)
 
         """
 
-        # hold: -1 -1 -1 +1 +1 +1 +4 +5  
+        # buy: -1 -1 -1 +1 +1 +1 +4 +5  
         # sell: +0 +2 +2 +2 +6 +6 +6 +6
 
 
@@ -43,7 +49,7 @@ class Solution:
                 sell[i-1],
                 prices[i]+buy[i-1]
             )
-        print(buy)
-        print(sell)
+        # print(buy)
+        # print(sell)
         
         return sell[-1]
