@@ -40,5 +40,4 @@ class Solution(object):
         ans = self.updateTree(root.right, d, ans, targetSum)
         d[root.val]-=1
         
-        return ans 
-        
+        return ans
