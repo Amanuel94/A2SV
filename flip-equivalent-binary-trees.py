@@ -10,11 +10,12 @@ class Solution:
 
         def flip(root1, root2):
 
-            if root1 is None and root2 is not None or root2 is None and root1 is not None:
+            if (root1 is None) ^ (root2 is None):
                 return False
 
             if root1 is None and root2 is None:
                 return True
+
             if root1.val != root2.val:
                 return False
 
